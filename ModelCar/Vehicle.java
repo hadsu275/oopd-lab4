@@ -10,7 +10,7 @@ public abstract class Vehicle implements Movable{
     private Color color;
     public double x;    // this two instans object är för position for bilar;
     public double y;
-    public String direction;
+    public String direction = "East";
 
     public Vehicle(int nrDoors, double enginePower, String modelName, Color color) {
         this.nrDoors = nrDoors;
