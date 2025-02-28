@@ -1,9 +1,6 @@
 package ControllerView;
 
-import ModelCar.Saab95;
-import ModelCar.Scania;
-import ModelCar.Vehicle;
-import ModelCar.Volvo240;
+import ModelCar.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -31,6 +28,7 @@ public class DrawPanel extends JPanel{
 
     // TODO: Make this general for all cars
     public void moveit(int x, int y, Vehicle car){
+
         if (car instanceof Volvo240){
             volvoPoint.x = x;
             volvoPoint.y = y;
@@ -85,10 +83,5 @@ public class DrawPanel extends JPanel{
 
     }
 
-    public static interface Movable {
-        void move();
-        void turnLeft();
-        void turnRight();
 
-    }
 }

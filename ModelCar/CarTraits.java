@@ -1,9 +1,9 @@
 package ModelCar;
 import java.util.ArrayList;
 
-public class CarTreats {
+public class CarTraits {
     private ArrayList<Vehicle> cars;
-    public CarTreats(){
+    public CarTraits(){
         this.cars = new ArrayList<>();
     }
     public void setCars(ArrayList<Vehicle> cars){
@@ -16,6 +16,7 @@ public class CarTreats {
         ) {
             car.gas(gas);
         }
+
 
     }
     public void brake(int amount) {
@@ -64,8 +65,8 @@ public class CarTreats {
         for (Vehicle car :cars) {
             car.stopEngine();
         }
+       // System.out.println(cars);
 
-
-        System.out.println(cars);
     }
+
 }

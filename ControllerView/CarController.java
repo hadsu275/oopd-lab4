@@ -1,20 +1,19 @@
 package ControllerView;
+import ModelCar.TimerListener;
 import ModelCar.Vehicle;
-import ModelCar.Volvo240;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class CarController {
     private final int delay = 50;
     private ArrayList<Vehicle> cars;
-    private Timer timer = new Timer(delay, new TimerListener());
+    private Timer timer;
     CarView frame;
 
-    public CarController(ArrayList<Vehicle> cars) {
+    public CarController(ArrayList<Vehicle> cars, TimerListener timerListener) {
+
         this.cars = new ArrayList<>();
+        this.timer = new Timer(delay, timerListener);
     }
     public void setCars(ArrayList<Vehicle> cars){
         this.cars = cars;
@@ -37,7 +36,7 @@ public class CarController {
         this.frame = carView;
     }
 
-
+/*
     private class TimerListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
@@ -69,6 +68,8 @@ public class CarController {
             }
         }
     }
+
+ */
 
 
 

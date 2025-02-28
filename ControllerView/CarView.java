@@ -1,6 +1,6 @@
 package ControllerView;
 
-import ModelCar.CarTreats;
+import ModelCar.CarTraits;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -22,9 +22,9 @@ public class CarView extends JFrame{
     private static final int Y = 800;
 
     // The controller member
-    CarTreats carC;
+    CarTraits carC;
 
-    DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    public DrawPanel drawPanel = new DrawPanel(X, Y-240);
     JPanel controlPanel = new JPanel();
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
@@ -50,7 +50,7 @@ public class CarView extends JFrame{
     JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public CarView(String framename, CarTreats cc){
+    public CarView(String framename, CarTraits cc){
         this.carC = cc;
         initComponents(framename);
     }

@@ -10,22 +10,28 @@ public static void main(String[] args) {
     cars.add(CarFactory.createSaab95());
     cars.add(CarFactory.createScania());
 
-    CarTreats ct = new CarTreats();
+    CarTraits ct = new CarTraits();
     ct.setCars(cars);
 
-    CarController cc = new CarController(cars);
+    CarView cv = new CarView("CarSim 1.0",ct);
+
+    TimerListener timerListener =  new TimerListener(cv);
+    timerListener.setCars(cars);
+
+    CarController cc = new CarController(cars, timerListener);
     cc.setCars(cars);
 
-
-    cc.setFrame(new CarView("CarSim 1.0",ct));
+    cc.setFrame(cv);
 
 
     if (!cars.isEmpty()){
         cars.getFirst().currentSpeed = 0;
         cars.add(new Scania());
+        cars.add(new Volvo240());
+        cars.add(new Saab95());
 
     }
+
     cc.getTimer().start();
 
 }
-
