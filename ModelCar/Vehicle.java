@@ -1,5 +1,7 @@
 package ModelCar;
 
+import ControllerView.DrawPanel;
+
 import java.awt.*;
 
 public abstract class Vehicle implements Movable{
@@ -11,6 +13,11 @@ public abstract class Vehicle implements Movable{
     public double x;    // this two instans object är för position for bilar;
     public double y;
     public String direction = "East";
+
+
+    //Point volvoPoint = new Point();
+    //Point saab95Point = new Point(0, 150);
+    //Point scaniaPoint = new Point(0,250);
 
     public Vehicle(int nrDoors, double enginePower, String modelName, Color color) {
         this.nrDoors = nrDoors;
@@ -86,6 +93,24 @@ public abstract class Vehicle implements Movable{
             y = y - currentSpeed;
         }
     }
+/*
+    public void moveit(int x, int y, Vehicle car){
+
+        if (car instanceof Volvo240){
+            volvoPoint.x = x;
+            volvoPoint.y = y;
+        }
+        if (car instanceof Saab95){
+            saab95Point.x = x;
+            saab95Point.y = y + 150;
+        }
+        if (car instanceof Scania){
+            scaniaPoint.x = x;
+            scaniaPoint.y = y + 250;
+        }
+    }
+
+ */
 
     @Override
     public void turnLeft() {

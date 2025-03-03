@@ -1,7 +1,12 @@
 package ControllerView;
+import ModelCar.CarTraits;
 import ModelCar.TimerListener;
 import ModelCar.Vehicle;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class CarController {
@@ -9,68 +14,100 @@ public class CarController {
     private ArrayList<Vehicle> cars;
     private Timer timer;
     CarView frame;
+    int gasAmount = 0;
+    int brakeAmount = 0;
+    CarTraits carC;
 
-    public CarController(ArrayList<Vehicle> cars, TimerListener timerListener) {
 
+    public CarController(ArrayList<Vehicle> cars, TimerListener timerListener, CarView cv, CarTraits carC) {
         this.cars = new ArrayList<>();
         this.timer = new Timer(delay, timerListener);
-    }
-    public void setCars(ArrayList<Vehicle> cars){
-        this.cars = cars;
-
-    }
-    public ArrayList<Vehicle> getCars() {
-        return cars; // Skapar en ny lista med samma innehåll
-    }
-
-    public CarView getFrame() {
-        return frame;
-    }
-
-    public Timer getTimer() {
-        return timer;
-    }
+        this.carC = carC;
+        this.setupListeners(cv);
 
 
+    }
+    public void setCars(ArrayList<Vehicle> cars) { this.cars = cars;
+    }
+    public ArrayList<Vehicle> getCars() { return cars; // Skapar en ny lista med samma innehåll
+    }
+    public CarView getFrame() { return frame;
+    }
+    public Timer getTimer() { return timer;
+    }
     public void setFrame(CarView carView) {
         this.frame = carView;
     }
 
-/*
-    private class TimerListener implements ActionListener {
 
-        public void actionPerformed(ActionEvent e) {
-            for (Vehicle car : cars) {
-                car.move();
-                int x = (int) Math.round(car.x);
-                int y = (int) Math.round(car.y);
 
-                frame.drawPanel.moveit(x, y, car);
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
-                if (x > 700 ){
-                    car.turnLeft();
-                    car.turnLeft();
-                }
-                if (x < 0){
-                    car.turnLeft();
-                    car.turnLeft();
-                }
-                for (Vehicle volvo : cars){
-                    if (volvo instanceof Volvo240 volvo240){
-                        int xv = (int) Math.round(volvo240.x);
-                        if (300 < xv && xv < 400 ){
-                            volvo240.currentSpeed = 0;
-                        }
-                    }
-                }
+    private void setupListeners(CarView carView) {
+
+        carView.gasSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
 
             }
-        }
+        });
+
+        carView.brakeSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                brakeAmount = (int) ((JSpinner)e.getSource()).getValue();
+            }
+        });
+
+        carView.gasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.gas(gasAmount);
+            }
+        });
+
+        carView.brakeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.brake(brakeAmount);
+            }
+        });
+        carView.turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOn();
+            }
+        });
+        carView.turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOf();
+            }
+        });
+
+        carView.liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.liftButton(15.5);
+            }
+        });
+
+        carView.lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.lowerButton(15.5);
+            }
+        });
+
+        carView.startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.startButton();
+            }
+        });
+
+        carView.stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.stopButton();
+            }
+        });
     }
-
- */
-
-
-
 }

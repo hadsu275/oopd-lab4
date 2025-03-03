@@ -27,7 +27,6 @@ public class TimerListener implements ActionListener {
             int y = (int) Math.round(car.y);
 
             frame.drawPanel.moveit(x, y, car);
-
             // repaint() calls the paintComponent method of the panel
             frame.drawPanel.repaint();
             if (x > 700 ){
@@ -44,7 +43,9 @@ public class TimerListener implements ActionListener {
                     if (300 < xv && xv < 400 ){
                         volvo240.currentSpeed = 0;
                     }
+
                 }
+
             }
 
         }

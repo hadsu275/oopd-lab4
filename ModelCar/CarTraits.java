@@ -5,9 +5,11 @@ public class CarTraits {
     private ArrayList<Vehicle> cars;
     public CarTraits(){
         this.cars = new ArrayList<>();
+
     }
     public void setCars(ArrayList<Vehicle> cars){
         this.cars = cars;
+
     }
 
     public void gas(int amount) {
@@ -65,7 +67,6 @@ public class CarTraits {
         for (Vehicle car :cars) {
             car.stopEngine();
         }
-       // System.out.println(cars);
 
     }
 

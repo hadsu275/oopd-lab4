@@ -26,7 +26,12 @@ public class DrawPanel extends JPanel{
     BufferedImage scaniaImage;
     Point scaniaPoint = new Point(0,250);
 
+    public DrawPanel() {
+
+    }
+
     // TODO: Make this general for all cars
+
     public void moveit(int x, int y, Vehicle car){
 
         if (car instanceof Volvo240){
@@ -42,6 +47,8 @@ public class DrawPanel extends JPanel{
             scaniaPoint.y = y + 250;
         }
     }
+
+
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
@@ -71,6 +78,7 @@ public class DrawPanel extends JPanel{
 
     }
 
+
     // This method is called each time the panel updates/refreshes/repaints itself
     // TODO: Change to suit your needs.
     @Override
@@ -82,6 +90,5 @@ public class DrawPanel extends JPanel{
         g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null); // see javadoc for more info on the parameters
 
     }
-
 
 }

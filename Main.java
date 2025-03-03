@@ -15,11 +15,16 @@ public static void main(String[] args) {
 
     CarView cv = new CarView("CarSim 1.0",ct);
 
+
+
     TimerListener timerListener =  new TimerListener(cv);
     timerListener.setCars(cars);
 
-    CarController cc = new CarController(cars, timerListener);
+
+
+    CarController cc = new CarController(cars, timerListener, cv, ct);
     cc.setCars(cars);
+
 
     cc.setFrame(cv);
 
