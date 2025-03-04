@@ -9,7 +9,7 @@ public static void main(String[] args) {
     cars.add(CarFactory.createVolvo240());
     cars.add(CarFactory.createSaab95());
     cars.add(CarFactory.createScania());
-
+    //cars.add(CarFactory.createIveco());
     CarTraits ct = new CarTraits();
     ct.setCars(cars);
 

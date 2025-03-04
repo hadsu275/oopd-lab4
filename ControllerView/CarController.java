@@ -14,8 +14,8 @@ public class CarController {
     private ArrayList<Vehicle> cars;
     private Timer timer;
     CarView frame;
-    int gasAmount = 0;
-    int brakeAmount = 0;
+    private int gasAmount = 0;
+    private int brakeAmount = 0;
     CarTraits carC;
 
 
@@ -109,5 +109,6 @@ public class CarController {
                 carC.stopButton();
             }
         });
+
     }
 }

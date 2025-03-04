@@ -22,14 +22,12 @@ public class CarView extends JFrame{
     JPanel controlPanel = new JPanel();
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
-    int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
 
 
 
     JPanel brakePanel = new JPanel();
     JSpinner brakeSpinner = new JSpinner();
-    int brakeAmount = 0;
     JLabel brakeLabel = new JLabel("Amount of brake");
 
 
@@ -39,6 +37,8 @@ public class CarView extends JFrame{
     JButton turboOffButton = new JButton("Saab Turbo off");
     JButton liftBedButton = new JButton("Scania Lift Bed");
     JButton lowerBedButton = new JButton("Lower Lift Bed");
+    JButton addCarButton = new JButton("Add Car");
+    JButton removeCarButton = new JButton("Remove Car");
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
@@ -102,7 +102,9 @@ public class CarView extends JFrame{
         controlPanel.add(lowerBedButton, 5);
         controlPanel.add(startButton, 6);
         controlPanel.add(stopButton, 7);
-        controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
+        controlPanel.add(addCarButton, 8);
+        controlPanel.add(removeCarButton, 9);
+        controlPanel.setPreferredSize(new Dimension((X/2)+15, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
 

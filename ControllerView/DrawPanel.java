@@ -1,7 +1,5 @@
 package ControllerView;
-
 import ModelCar.*;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -26,9 +24,6 @@ public class DrawPanel extends JPanel{
     BufferedImage scaniaImage;
     Point scaniaPoint = new Point(0,250);
 
-    public DrawPanel() {
-
-    }
 
     // TODO: Make this general for all cars
 
@@ -49,7 +44,6 @@ public class DrawPanel extends JPanel{
     }
 
 
-
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
         this.setDoubleBuffered(true);
@@ -63,6 +57,7 @@ public class DrawPanel extends JPanel{
 
             // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
+
             volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("../pics/Volvo240.jpg"));
             volvoWorkshopImage = ImageIO.read(DrawPanel.class.getResourceAsStream("../pics/VolvoBrand.jpg"));
             saab95Image = ImageIO.read(DrawPanel.class.getResourceAsStream("../pics/Saab95.jpg"));
