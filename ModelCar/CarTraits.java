@@ -13,6 +13,12 @@ public class CarTraits{
         this.observers = new ArrayList<>();
 
     }
+    private void notifyObservers(){
+        for (UpdateInterface observer : observers){
+            observer.update();
+        }
+    }
+
     public void setCars(ArrayList<Vehicle> cars){
         this.cars = cars;
         notifyObservers();
@@ -31,11 +37,7 @@ public class CarTraits{
         observers.remove(observer);
 
     }
-    private void notifyObservers(){
-        for (UpdateInterface observer : observers){
-            observer.update();
-        }
-    }
+
 
 
 
