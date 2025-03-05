@@ -20,18 +20,21 @@ public class TimerListener implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
-
         for (Vehicle car : cars) {
             car.move();
             int x = (int) Math.round(car.x);
             int y = (int) Math.round(car.y);
 
-            frame.drawPanel.moveit(x, y, car);
+
+            frame.drawPanel.moveit(car, x, y);
             // repaint() calls the paintComponent method of the panel
             frame.drawPanel.repaint();
+
             if (x > 700 ){
                 car.turnLeft();
                 car.turnLeft();
+
+
             }
             if (x < 0){
                 car.turnLeft();

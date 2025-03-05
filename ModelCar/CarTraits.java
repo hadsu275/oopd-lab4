@@ -1,8 +1,12 @@
 package ModelCar;
+
 import java.util.ArrayList;
 
 public class CarTraits {
     private ArrayList<Vehicle> cars;
+
+    //String[] str = new String[]{"volvo", "saab", "scania"};
+
     public CarTraits(){
         this.cars = new ArrayList<>();
 
@@ -17,6 +21,7 @@ public class CarTraits {
         for (Vehicle car : cars
         ) {
             car.gas(gas);
+
         }
 
 
@@ -69,6 +74,17 @@ public class CarTraits {
         }
 
     }
+    public void addCar(){
+        //cars.add(new Saab95());
+        cars.add(CarFactory.createVolvo240());
+        cars.add(CarFactory.createSaab95());
+        cars.add(CarFactory.createScania());
+    }
+
+    public void removeCar(){
+        cars.removeLast();
+    }
+
 
 
 

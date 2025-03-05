@@ -25,7 +25,6 @@ public class CarView extends JFrame{
     JLabel gasLabel = new JLabel("Amount of gas");
 
 
-
     JPanel brakePanel = new JPanel();
     JSpinner brakeSpinner = new JSpinner();
     JLabel brakeLabel = new JLabel("Amount of brake");
@@ -33,12 +32,14 @@ public class CarView extends JFrame{
 
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
-    JButton turboOnButton = new JButton("Saab Turbo on");
+    JButton turboOnButton = new JButton("Saabon");
     JButton turboOffButton = new JButton("Saab Turbo off");
     JButton liftBedButton = new JButton("Scania Lift Bed");
     JButton lowerBedButton = new JButton("Lower Lift Bed");
-    JButton addCarButton = new JButton("Add Car");
-    JButton removeCarButton = new JButton("Remove Car");
+
+    JButton removeCarButton = new JButton("RemoveC");
+    String[] str = { "volvo", "saab", "scania" };
+    JComboBox<String> carList = new JComboBox<>(str);
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
@@ -94,7 +95,8 @@ public class CarView extends JFrame{
 
         controlPanel.setLayout(new GridLayout(2,4));
 
-        controlPanel.add(gasButton, 0);
+        controlPanel.add(carList, 0);
+
         controlPanel.add(turboOnButton, 1);
         controlPanel.add(liftBedButton, 2);
         controlPanel.add(brakeButton, 3);
@@ -102,7 +104,7 @@ public class CarView extends JFrame{
         controlPanel.add(lowerBedButton, 5);
         controlPanel.add(startButton, 6);
         controlPanel.add(stopButton, 7);
-        controlPanel.add(addCarButton, 8);
+        controlPanel.add(gasButton, 8);
         controlPanel.add(removeCarButton, 9);
         controlPanel.setPreferredSize(new Dimension((X/2)+15, 200));
         this.add(controlPanel);

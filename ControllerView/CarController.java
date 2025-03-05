@@ -20,7 +20,7 @@ public class CarController {
 
 
     public CarController(ArrayList<Vehicle> cars, TimerListener timerListener, CarView cv, CarTraits carC) {
-        this.cars = new ArrayList<>();
+        this.cars = cars;
         this.timer = new Timer(delay, timerListener);
         this.carC = carC;
         this.setupListeners(cv);
@@ -109,6 +109,22 @@ public class CarController {
                 carC.stopButton();
             }
         });
+
+
+        carView.carList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.addCar();
+            }
+        });
+        carView.removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.drawPanel.removeCar(cars.getLast());
+                carC.removeCar();
+            }
+        });
+
 
     }
 }
