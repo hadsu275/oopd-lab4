@@ -3,6 +3,7 @@ import ModelCar.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -14,9 +15,14 @@ public class DrawPanel extends JPanel{
     BufferedImage volvoImage, volvoWorkshopImage, saab95Image, scaniaImage;
 
     Point volvoWorkshopPoint = new Point(300,0);
+
     public void removeCar(Vehicle car){
         map.remove(car);
         repaint();
+
+    }
+    public void sync(ArrayList<Vehicle> currentCar){
+        map.keySet().retainAll(currentCar);
 
     }
 
@@ -25,8 +31,6 @@ public class DrawPanel extends JPanel{
 
 
     }
-
-
 
     public DrawPanel(int x, int y) {
         this.setDoubleBuffered(true);
@@ -79,5 +83,4 @@ public class DrawPanel extends JPanel{
 
 
     }
-
 }

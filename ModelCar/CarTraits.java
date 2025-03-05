@@ -1,20 +1,44 @@
 package ModelCar;
-
 import java.util.ArrayList;
+import java.util.List;
 
-public class CarTraits {
+public class CarTraits{
     private ArrayList<Vehicle> cars;
+    private final List<UpdateInterface> observers;
+    private int maxCars = 6;
 
-    //String[] str = new String[]{"volvo", "saab", "scania"};
 
     public CarTraits(){
         this.cars = new ArrayList<>();
+        this.observers = new ArrayList<>();
 
     }
     public void setCars(ArrayList<Vehicle> cars){
         this.cars = cars;
+        notifyObservers();
 
     }
+    public ArrayList<Vehicle> getCars(){
+        return cars;
+
+
+    }
+    public void addObserver(UpdateInterface observer){
+        observers.add(observer);
+
+    }
+    public void removeObserver(UpdateInterface observer){
+        observers.remove(observer);
+
+    }
+    private void notifyObservers(){
+        for (UpdateInterface observer : observers){
+            observer.update();
+        }
+    }
+
+
+
 
     public void gas(int amount) {
         double gas = ((double) amount) / 100;
@@ -75,17 +99,33 @@ public class CarTraits {
 
     }
     public void addCar(){
-        //cars.add(new Saab95());
-        cars.add(CarFactory.createVolvo240());
-        cars.add(CarFactory.createSaab95());
-        cars.add(CarFactory.createScania());
+        int carIndex = (int) (Math.random() * 3);
+        if (cars.size() < maxCars) {
+            switch (carIndex) {
+
+                case 0:
+                    cars.add(CarFactory.createVolvo240());
+                    break;
+
+                case 1:
+                    cars.add(CarFactory.createSaab95());
+                    break;
+                case 2:
+                    cars.add(CarFactory.createScania());
+                    break;
+            }
+        }
+        else{
+            throw new IllegalArgumentException("för många bilar ");
+        }
+        notifyObservers();
+
     }
 
     public void removeCar(){
         cars.removeLast();
+        notifyObservers();
     }
-
-
 
 
 }

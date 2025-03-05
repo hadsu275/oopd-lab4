@@ -23,6 +23,7 @@ public class CarController {
         this.cars = cars;
         this.timer = new Timer(delay, timerListener);
         this.carC = carC;
+        carC.addObserver(cv);
         this.setupListeners(cv);
 
 
@@ -111,7 +112,7 @@ public class CarController {
         });
 
 
-        carView.carList.addActionListener(new ActionListener() {
+        carView.addCar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 carC.addCar();
@@ -120,7 +121,7 @@ public class CarController {
         carView.removeCarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.drawPanel.removeCar(cars.getLast());
+                //frame.drawPanel.removeCar(cars.getLast());
                 carC.removeCar();
             }
         });

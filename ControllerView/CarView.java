@@ -1,5 +1,7 @@
 package ControllerView;
 import ModelCar.CarTraits;
+import ModelCar.UpdateInterface;
+
 import javax.swing.*;
 import java.awt.*;
 /**
@@ -10,7 +12,7 @@ import java.awt.*;
  * TODO: Write more actionListeners and wire the rest of the buttons
  **/
 
-public class CarView extends JFrame{
+public class CarView extends JFrame implements UpdateInterface {
     private static final int X = 800;
     private static final int Y = 800;
 
@@ -38,8 +40,9 @@ public class CarView extends JFrame{
     JButton lowerBedButton = new JButton("Lower Lift Bed");
 
     JButton removeCarButton = new JButton("RemoveC");
-    String[] str = { "volvo", "saab", "scania" };
-    JComboBox<String> carList = new JComboBox<>(str);
+    //String[] str = { "volvo", "saab", "sca" };
+    //JComboBox<String> carList = new JComboBox<>(str);
+    JButton addCar = new JButton("Add car");
 
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
@@ -95,7 +98,7 @@ public class CarView extends JFrame{
 
         controlPanel.setLayout(new GridLayout(2,4));
 
-        controlPanel.add(carList, 0);
+        controlPanel.add(addCar, 0);
 
         controlPanel.add(turboOnButton, 1);
         controlPanel.add(liftBedButton, 2);
@@ -106,6 +109,8 @@ public class CarView extends JFrame{
         controlPanel.add(stopButton, 7);
         controlPanel.add(gasButton, 8);
         controlPanel.add(removeCarButton, 9);
+        //controlPanel.add(carList, 10);
+        //carList.setVisible(true);
         controlPanel.setPreferredSize(new Dimension((X/2)+15, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -134,5 +139,12 @@ public class CarView extends JFrame{
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    @Override
+    public void update() {
+        drawPanel.sync(carC.getCars());
+        drawPanel.repaint();
+
     }
 }

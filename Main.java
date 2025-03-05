@@ -23,15 +23,6 @@ public static void main(String[] args) {
 
     cc.setFrame(cv);
 
-
-    if (!cars.isEmpty()){
-        cars.getFirst().currentSpeed = 0;
-        cars.add(new Scania());
-        cars.add(new Volvo240());
-        cars.add(new Saab95());
-
-    }
-
     cc.getTimer().start();
 
 }
