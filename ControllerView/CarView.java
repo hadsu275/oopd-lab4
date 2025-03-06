@@ -143,7 +143,7 @@ public class CarView extends JFrame implements UpdateInterface {
 
     @Override
     public void update() {
-        drawPanel.sync(carC.getCars());
+        drawPanel.activeCars(carC.getCars());
         drawPanel.repaint();
 
     }
