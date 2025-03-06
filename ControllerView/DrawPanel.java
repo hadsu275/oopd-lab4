@@ -16,12 +16,12 @@ public class DrawPanel extends JPanel{
 
     Point volvoWorkshopPoint = new Point(300,0);
 
-    public void removeCar(Vehicle car){
+    /*public void removeCar(Vehicle car){
         map.remove(car);
         repaint();
 
-    }
-    public void sync(ArrayList<Vehicle> currentCar){
+    } */
+    public void activeCars(ArrayList<Vehicle> currentCar){
         map.keySet().retainAll(currentCar);
 
     }
